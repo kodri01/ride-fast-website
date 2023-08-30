@@ -1,23 +1,36 @@
 <section class="section" style="margin-top: -4rem;">
-    <?php if (!empty($notification)) { ?>
-        <div class="alert alert-warning alert-dismissible fade show text-center" role="alert">
-            <?php echo $notification; ?>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    <?php } ?>
+    <?php if (!empty($notification)) {
+        if ($messageType === "success") {
+            echo '<div class="alert alert-success alert-dismissible fade show text-center" role="alert">' .
+                $notification .
+                '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>' .
+                '</div>';
+        } elseif ($messageType === "delete") {
+            echo '<div class="alert alert-danger alert-dismissible fade show text-center" role="alert">' .
+                $notification .
+                '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>' .
+                '</div>';
+        } else {
+            echo '<div class="alert alert-warning alert-dismissible fade show text-center" role="alert">' .
+                $notification .
+                '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>' .
+                '</div>';
+        }
+    } ?>
+
     <div class="section-content">
         <h1 class="text-uppercase">Our <b style="color: #1A51BD">Products</b></h1>
         <div class="line"></div>
         <?php if ($_SESSION) { ?>
-            <a href="?nav=add_produk" class="btn btn-small mb-2">
-                Tambah Product
-            </a>
+        <a href="?nav=add_produk" class="btn btn-small mb-2">
+            Tambah Product
+        </a>
         <?php } else { ?>
-            <div class=""></div>
+        <div class=""></div>
         <?php } ?>
         <div class="row w-100 justify-content-center mx-3">
             <div class="col-sm-6 col-md-3 col-lg-3">
-                <a href="?nav=sukucadang">
+                <a href="?nav=Suku Cadang">
                     <div class="card">
                         <div class="card-top">
                             <img src="assets/img/suku.svg" alt="">
@@ -34,7 +47,7 @@
                 </a>
             </div>
             <div class="col-sm-6 col-md-3 col-lg-3">
-                <a href="?nav=peralatan">
+                <a href="?nav=Peralatan">
                     <div class="card">
                         <div class="card-top">
                             <img src="assets/img/alat.svg" alt="">
@@ -50,7 +63,7 @@
                 </a>
             </div>
             <div class="col-sm-6 col-md-3 col-lg-3">
-                <a href="?nav=perawatan">
+                <a href="?nav=Perawatan">
                     <div class="card">
                         <div class="card-top">
                             <img src="assets/img/rawat.svg" alt="">
@@ -66,7 +79,7 @@
                 </a>
             </div>
             <div class="col-sm-6 col-md-3 col-lg-3">
-                <a href="?nav=merchendise">
+                <a href="?nav=Merchendise">
                     <div class="card">
                         <div class="card-top">
                             <img src="assets/img/pakaian.svg" alt="">

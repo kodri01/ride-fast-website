@@ -21,7 +21,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: ../index.php?nav=galery&message=success");
             exit();
         } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
+            $_SESSION["notification"] = "Galeri gagal ditambahkan!";
+            header("Location: ../index.php?nav=galery&message=success");
+            exit();
         }
     } else {
         $_SESSION["notification"] = "Terjadi kesalahan saat mengunggah gambar.";

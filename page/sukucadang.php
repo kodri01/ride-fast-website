@@ -23,17 +23,33 @@
                         $nama_product = $row["nama_product"];
                         $img_product = $row["img_product"];
                         $harga = $row["harga"];
+                        $id = $row["id"];
                 ?>
-                <div class="col-sm-6 col-md-4 col-lg-4 mb-4">
-                    <div class="galeri-image">
-                        <img src="config/<?php echo $img_product; ?> " alt="<?php echo $nama_product; ?>">
-                        <center class="my-3">
-                            <h2><?php echo $nama_product; ?></h2>
-                            <span class="badge text-black"
-                                style="background-color: #FFAF18;"><?= formatRupiah($harga); ?></span>
-                        </center>
-                    </div>
-                </div>
+                        <div class="col-sm-6 col-md-4 col-lg-4 mb-4">
+                            <div class="galeri-image">
+                                <img src="config/<?php echo $img_product; ?> " alt="<?php echo $nama_product; ?>">
+                                <center class="my-3">
+                                    <h2><?php echo $nama_product; ?></h2>
+                                    <span class="badge text-black" style="background-color: #FFAF18;"><?= formatRupiah($harga); ?></span>
+
+                                </center>
+                                <?php if ($_SESSION) { ?>
+                                    <div class="row mx-2">
+                                        <div class="col-sm-2"><a href="?nav=edit_produk&id=<?= $id; ?>">
+                                                <ion-icon name="pencil" style="fill:#FFAF18;font-size: 24px;"></ion-icon>
+                                            </a>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <a href="config/delete-auth.php?id=<?= $id; ?>">
+                                                <ion-icon name="trash" style="fill:red;font-size: 24px;"></ion-icon>
+                                            </a>
+                                        </div>
+                                    </div>
+                                <?php } else { ?>
+                                    <div class=""></div>
+                                <?php } ?>
+                            </div>
+                        </div>
 
                 <?php
                     }
